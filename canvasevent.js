@@ -70,8 +70,11 @@ $(function () {
         canvas.addEventListener('mouseup', dragEnd);
         canvas.addEventListener('mouseout', dragEnd);
         canvas.addEventListener('mousemove', (e) => {
+            
+            let x = e.layerX - canvas.getBoundingClientRect().left;
+            let y = e.layerY - canvas.getBoundingClientRect().top;
 
-            draw(e.layerX, e.layerY);
+            draw(x, y);
         });
         // SP用
         canvas.addEventListener('touchstart', dragStart);
